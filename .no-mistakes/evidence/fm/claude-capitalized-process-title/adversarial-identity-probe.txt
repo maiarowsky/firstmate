@@ -1,0 +1,27 @@
+### target commit (fix)
+== session-lock identity (bin/fm-session-lock-lib.sh) on real processes
+process named CLAUDE                         comm=<tmp>/t1/CLAUDE                          lock-lib: harness (is_claude=1)        | fm-lock.sh status on a lock naming it: lock: held by live harness pid <pid>
+process named Claude                         comm=<tmp>/t2/Claude                          lock-lib: harness (is_claude=1)        | fm-lock.sh status on a lock naming it: lock: held by live harness pid <pid>
+process named Codex (other harness, capitalized) comm=<tmp>/t3/Codex                           lock-lib: not a harness                | fm-lock.sh status on a lock naming it: lock: stale (pid <pid> dead or not a harness)
+runner under a Claude/ path component        comm=<tmp>/Claude/bin/runner                  lock-lib: not a harness                | fm-lock.sh status on a lock naming it: lock: stale (pid <pid> dead or not a harness)
+node running a script under .../Claude/...   comm=node                                     lock-lib: not a harness                | fm-lock.sh status on a lock naming it: lock: stale (pid <pid> dead or not a harness)
+
+== tmux liveness classifier (bin/backends/tmux.sh) on a private tmux socket
+CLAUDE                                       tmux liveness verdict: alive
+Claude                                       tmux liveness verdict: alive
+Codex                                        tmux liveness verdict: ambiguous
+runner                                       tmux liveness verdict: ambiguous
+
+### base commit (before fix), same probe
+== session-lock identity (bin/fm-session-lock-lib.sh) on real processes
+process named CLAUDE                         comm=<tmp>/t1/CLAUDE                          lock-lib: not a harness                | fm-lock.sh status on a lock naming it: lock: stale (pid <pid> dead or not a harness)
+process named Claude                         comm=<tmp>/t2/Claude                          lock-lib: not a harness                | fm-lock.sh status on a lock naming it: lock: stale (pid <pid> dead or not a harness)
+process named Codex (other harness, capitalized) comm=<tmp>/t3/Codex                           lock-lib: not a harness                | fm-lock.sh status on a lock naming it: lock: stale (pid <pid> dead or not a harness)
+runner under a Claude/ path component        comm=<tmp>/Claude/bin/runner                  lock-lib: not a harness                | fm-lock.sh status on a lock naming it: lock: stale (pid <pid> dead or not a harness)
+node running a script under .../Claude/...   comm=node                                     lock-lib: not a harness                | fm-lock.sh status on a lock naming it: lock: stale (pid <pid> dead or not a harness)
+
+== tmux liveness classifier (bin/backends/tmux.sh) on a private tmux socket
+CLAUDE                                       tmux liveness verdict: ambiguous
+Claude                                       tmux liveness verdict: ambiguous
+Codex                                        tmux liveness verdict: ambiguous
+runner                                       tmux liveness verdict: ambiguous

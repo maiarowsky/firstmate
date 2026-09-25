@@ -1,0 +1,4 @@
+ok - tmux liveness: a harness-named foreground process classifies alive
+last verdict for liveness:capitalized was ambiguous (expected alive); title=standin comms=[/var/folders/h9/pytlt6s52cg8ln8m8zxw26kc0000gn/T//fm-liveness.fLsINB/titled/Claude ]
+not ok - a foreground process titled Claude must classify alive
+exit=1

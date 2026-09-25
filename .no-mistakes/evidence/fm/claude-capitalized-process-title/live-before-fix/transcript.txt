@@ -1,0 +1,41 @@
+== live lab (before-fix, hook path): Claude Code 2.1.282 primary launched as `Claude`, carrying a retained CURSOR_AGENT=1 marker
+
+-- the live session process (child of the pane's launcher shell)
+ps -o comm=: Claude
+argv[0]:     Claude
+executable:  ~/.local/share/claude/versions/2.1.282
+
+-- state/.lock while the session is live
+no state/.lock was written
+state/.session-start-complete present: no
+
+-- bin/fm-lock.sh status from outside the session (holder liveness)
+lock: free
+
+-- tmux liveness classifier on the lab pane: fm_backend_agent_state tmux primary:agent
+verdict=ambiguous
+foreground comms=[/bin/sh Claude]
+
+-- SessionStart hook digest (tracked .claude/settings.json -> bin/fm-sessionstart-run.sh)
+digest bytes: 10972
+LOCK
+●  READ-ONLY SESSION - FLEET LOCK OWNERSHIP WAS NOT VERIFIED
+●  diagnostics and the rest of this read-only-safe digest still ran below.
+●  Operate read-only until this resolves - do not spawn, steer, merge, or
+skipped (read-only session) - 0 record(s) remain queued because this session lacks verified fleet-lock ownership.
+●  This read-only session should report the lapse, not repair it.
+●  Watcher repair belongs to the session holding the fleet lock; do not drain, arm, or repair from this read-only session.
+SUPERVISION OPERATING INSTRUCTIONS - primary harness: cursor
+- Lock: read-only; do not drain, arm, spawn, steer, merge, or repair fleet state here.
+   The private supersession records are `state/.cursor-park-owner` and its short publication and commit lock `state/.cursor-park-owner.lock`.
+
+-- in-session Bash tool output
+cursor
+lock: free
+
+-- Stop hook (bin/fm-claude-stop-autoarm.sh): state/.claude-autoarm-epoch
+absent: the Stop auto-arm never claimed supervision
+watcher beacon state/.last-watcher-beat present: no
+Claude exit: exit=1
+
+== teardown: lab tmux server killed, lab processes left: 0, lab home removed

@@ -1,0 +1,4 @@
+ok - session-lock: ordinary script paths under a harness directory, or a Claude-named one, are not harness processes
+ok - session-lock e2e: a version-named session claims the home and arms supervision
+not ok - a session titled Claude must claim its home and rewake: expected exit 2, got 0
+exit=1

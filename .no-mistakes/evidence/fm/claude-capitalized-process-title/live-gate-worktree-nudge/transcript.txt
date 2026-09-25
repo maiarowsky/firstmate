@@ -1,0 +1,40 @@
+== live lab (gate-worktree-nudge, nudge path): Claude Code 2.1.282 primary launched as `Claude`, carrying a retained CURSOR_AGENT=1 marker
+
+-- the live session process (child of the pane's launcher shell)
+ps -o comm=: Claude
+argv[0]:     Claude
+executable:  ~/.local/share/claude/versions/2.1.282
+
+-- state/.lock while the session is live
+recorded pid is the Claude session process; its comm: Claude
+state/.lock-session (trusted session id sidecar) present: yes
+state/.session-start-complete present: yes
+
+-- bin/fm-lock.sh status from outside the session (holder liveness)
+lock: held by live harness pid <session-pid>
+
+-- tmux liveness classifier on the lab pane: fm_backend_agent_state tmux primary:agent
+verdict=alive
+foreground comms=[/bin/sh Claude]
+
+-- session-start digest the primary ran itself (bin/fm-session-start.sh)
+digest bytes: 9008
+LOCK
+lock acquired: harness pid <session-pid>
+SUPERVISION OPERATING INSTRUCTIONS - primary harness: claude
+- Lock: held by this session; this session owns normal supervision unless away mode says otherwise.
+Follow the supervision operating instructions block above for harness 'claude'.
+
+-- in-session Bash tool output
+claude
+comm claude
+lock: held by live harness pid <session-pid>
+
+-- Stop hook (bin/fm-claude-stop-autoarm.sh): state/.claude-autoarm-epoch
+absent: the Stop auto-arm never claimed supervision
+watcher beacon state/.last-watcher-beat present: no
+Claude exit: exit=0
+
+== teardown: lab tmux server killed, lab processes left: 0, lab home removed
+
+note: this run executes the scripts from the gate worktree itself, a linked git worktree. bin/fm-sessionstart-run.sh stands down for a no-mistakes gate worktree and bin/fm-claude-stop-autoarm.sh is scoped to plain checkouts, both by design, so the primary ran bin/fm-session-start.sh itself (the documented nudge-tier path) and the Stop auto-arm is expected to stay inert here. live-after-fix and live-before-fix drive the hook path from a plain checkout of the same tree.

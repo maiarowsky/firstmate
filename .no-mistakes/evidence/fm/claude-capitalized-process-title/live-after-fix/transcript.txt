@@ -1,0 +1,39 @@
+== live lab (after-fix, hook path): Claude Code 2.1.282 primary launched as `Claude`, carrying a retained CURSOR_AGENT=1 marker
+
+-- the live session process (child of the pane's launcher shell)
+ps -o comm=: Claude
+argv[0]:     Claude
+executable:  ~/.local/share/claude/versions/2.1.282
+
+-- state/.lock while the session is live
+recorded pid is the Claude session process; its comm: Claude
+state/.lock-session (trusted session id sidecar) present: yes
+state/.session-start-complete present: yes
+
+-- bin/fm-lock.sh status from outside the session (holder liveness)
+lock: held by live harness pid <session-pid>
+
+-- tmux liveness classifier on the lab pane: fm_backend_agent_state tmux primary:agent
+verdict=alive
+foreground comms=[/bin/sh Claude]
+
+-- SessionStart hook digest (tracked .claude/settings.json -> bin/fm-sessionstart-run.sh)
+digest bytes: 9009
+LOCK
+lock acquired: harness pid <session-pid>
+SUPERVISION OPERATING INSTRUCTIONS - primary harness: claude
+- Lock: held by this session; this session owns normal supervision unless away mode says otherwise.
+Follow the supervision operating instructions block above for harness 'claude'.
+
+-- in-session Bash tool output
+claude
+comm claude
+lock: held by live harness pid <session-pid>
+
+-- Stop hook (bin/fm-claude-stop-autoarm.sh): state/.claude-autoarm-epoch
+epoch=1 owner_pid=<pid> outcome=arming updated_at=1790365625
+Fri Sep 25 20:47:05 2026     bash <firstmate-root>/bin/fm-claude-stop-autoarm.sh
+watcher beacon state/.last-watcher-beat present: yes
+Claude exit: still-running
+
+== teardown: lab tmux server killed, lab processes left: 0, lab home removed

@@ -1,0 +1,3 @@
+ok - session-lock: a version-named Claude Code session is identified from its install path and argv[0]
+not ok - Claude: the session was not found in the ancestry at all
+exit=1
