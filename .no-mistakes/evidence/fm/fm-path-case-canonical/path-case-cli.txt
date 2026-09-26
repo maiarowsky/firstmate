@@ -1,0 +1,29 @@
+1. Claude linked-worktree trust via lowercase path:
+trusted: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3F37CW8GBBPFYCP82NEMB1T/.fm-path-case-live.FXKr2M/task
+trusted (project root): /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3F37CW8GBBPFYCP82NEMB1T/.fm-path-case-live.FXKr2M/projects/CaseSpelling
+persisted trust: canonical project + task worktree; lowercase alias not registered
+2. Trust refuses a foreign project despite case-canonicalization:
+error: refusing to pre-register Claude trust: '/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3F37CW8GBBPFYCP82NEMB1T/.fm-path-case-live.FXKr2M/task' is not a worktree of project '/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3F37CW8GBBPFYCP82NEMB1T/.fm-path-case-live.FXKr2M/other'
+foreign checkout refused
+3. Local-only case alias with an earlier symlink: 
+CaseSpelling: skipped: local-only project
+CaseSpelling: skipped: local-only project
+/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3F37CW8GBBPFYCP82NEMB1T/.fm-path-case-live.FXKr2M/projects/Alias: skipped: unknown or ambiguous project identity
+local-only HEAD and origin/main unchanged
+4. Switch registered posture to remote-backed and refresh with lowercase clone path:
+CaseSpelling: synced d6a2830..f199e96
+clone HEAD equals newly fetched origin/main
+5. Nested non-clone root is refused:
+subdir: skipped: not a clone root (git would act on /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3F37CW8GBBPFYCP82NEMB1T/.fm-path-case-live.FXKr2M/projects/CaseSpelling)
+6. Hidden clone retains local-only posture with case alias:
+.HiddenClone: skipped: local-only project
+.HiddenClone: skipped: local-only project
+7. Ambiguous alias to hidden clone is refused:
+/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3F37CW8GBBPFYCP82NEMB1T/.fm-path-case-live.FXKr2M/projects/EarlierAlias: skipped: unknown or ambiguous project identity
+8. Registered single symlink to an external clone remains refreshable:
+ExternalAlias: synced 4439ce1..b59516f
+external clone fast-forwarded to origin/main through registered symlink
+9. Claude trust when only Code/code ancestor differs (primary launch spelling):
+trusted: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3F37CW8GBBPFYCP82NEMB1T/.fm-ancestor-case-live.oROXSQ/task
+trusted (project root): /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3F37CW8GBBPFYCP82NEMB1T/.fm-ancestor-case-live.oROXSQ/Code/project
+persisted trust uses on-disk Code ancestor, not caller code spelling
