@@ -1,0 +1,949 @@
+
+=== declared-required-plan-absent ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/112
+EXIT: 1
+
+--- home/config/required-checks ---
+example/repo autofirma/local-mac-gate
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"validate","status":"COMPLETED","conclusion":"SUCCESS","startedAt":null,"completedAt":null}]}
+
+--- github-required-rules-fail ---
+gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403)
+
+--- stdout ---
+armed: state/task-x1.check.sh
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/example/repo/pull/112
+  - required check 'autofirma/local-mac-gate' has not reported at head d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1
+error: these required checks have not reported: autofirma/local-mac-gate
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/112 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/112 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+
+=== declared-required-plan-success ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/112
+EXIT: 0
+
+--- home/config/required-checks ---
+example/repo autofirma/local-mac-gate
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"validate","status":"COMPLETED","conclusion":"SUCCESS","startedAt":null,"completedAt":null},{"__typename":"StatusContext","context":"autofirma/local-mac-gate","state":"SUCCESS"}]}
+
+--- github-required-rules-fail ---
+gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403)
+
+--- stdout ---
+armed: state/task-x1.check.sh
+verified: https://github.com/example/repo/pull/112 is merged (state=MERGED, merged=true, isInMergeQueue=false)
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+verified: https://github.com/example/repo/pull/112 is open and mergeable, with every unwaived required check reported and every unwaived check green at head d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/112 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/112 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+pr merge 112 --repo example/repo --match-head-commit d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1 --squash
+api graphql -f query=query($owner:String!,$repo:String!,$number:Int!){repository(owner:$owner,name:$repo){pullRequest(number:$number){state merged isInMergeQueue baseRefName}}} -F owner=example -F repo=repo -F number=112 --jq .data.repository.pullRequest | "state=" + (.state // ""), "merged=" + (.merged | tostring), "queued=" + (.isInMergeQueue | tostring), "base=" + (.baseRefName // "")
+
+=== declared-required-empty ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/113
+EXIT: 1
+
+--- home/config/required-checks ---
+example/repo autofirma/local-mac-gate
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/example/repo/pull/113
+  - required check 'autofirma/local-mac-gate' has not reported at head d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2
+error: these required checks have not reported: autofirma/local-mac-gate
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/113 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/113 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+
+=== declared-required-classic ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/113
+EXIT: 1
+
+--- home/config/required-checks ---
+example/repo autofirma/local-mac-gate
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/example/repo/pull/113
+  - required check 'autofirma/local-mac-gate' has not reported at head d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2
+  - required check 'validate' has not reported at head d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2
+error: these required checks have not reported: autofirma/local-mac-gate, validate
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/113 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/113 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+
+=== declared-required-ruleset ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/113
+EXIT: 1
+
+--- home/config/required-checks ---
+example/repo autofirma/local-mac-gate
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/example/repo/pull/113
+  - required check 'autofirma/local-mac-gate' has not reported at head d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2
+  - required check 'validate' has not reported at head d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2
+error: these required checks have not reported: autofirma/local-mac-gate, validate
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/113 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/113 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+
+=== declared-required-unreadable ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/113
+EXIT: 1
+
+--- home/config/required-checks ---
+example/repo autofirma/local-mac-gate
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- github-required-rules-fail ---
+gh: Not Found (HTTP 404)
+
+--- stdout ---
+armed: state/task-x1.check.sh
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/example/repo/pull/113
+  - the branch rules for base branch main could not be read, so a required check that has not reported cannot be ruled out
+  - required check 'autofirma/local-mac-gate' has not reported at head d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2
+error: these required checks have not reported: autofirma/local-mac-gate
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/113 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/113 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+
+=== declared-required-missing-waived ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/114 --allow-missing autofirma/local-mac-gate
+EXIT: 0
+
+--- home/config/required-checks ---
+example/repo autofirma/local-mac-gate
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+verified: https://github.com/example/repo/pull/114 is merged (state=MERGED, merged=true, isInMergeQueue=false)
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+verified: https://github.com/example/repo/pull/114 is open and mergeable, with every unwaived required check reported and every unwaived check green at head d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/114 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/114 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+pr merge 114 --repo example/repo --match-head-commit d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3 --squash
+api graphql -f query=query($owner:String!,$repo:String!,$number:Int!){repository(owner:$owner,name:$repo){pullRequest(number:$number){state merged isInMergeQueue baseRefName}}} -F owner=example -F repo=repo -F number=114 --jq .data.repository.pullRequest | "state=" + (.state // ""), "merged=" + (.merged | tostring), "queued=" + (.isInMergeQueue | tostring), "base=" + (.baseRefName // "")
+
+=== declared-required-missing-wrong-name ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/114 --allow-missing validate
+EXIT: 1
+
+--- home/config/required-checks ---
+example/repo autofirma/local-mac-gate
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/example/repo/pull/114
+  - required check 'autofirma/local-mac-gate' has not reported at head d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3
+error: these required checks have not reported: autofirma/local-mac-gate
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/114 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/114 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+
+=== declared-required-red ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/114
+EXIT: 1
+
+--- home/config/required-checks ---
+example/repo autofirma/local-mac-gate
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3","baseRefName":"main","statusCheckRollup":[{"__typename":"StatusContext","context":"autofirma/local-mac-gate","state":"FAILURE"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/example/repo/pull/114
+  - check 'autofirma/local-mac-gate' is not green
+error: these checks are not green: autofirma/local-mac-gate
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/114 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/114 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+
+=== declared-required-red-waived ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/114 --allow-red autofirma/local-mac-gate
+EXIT: 0
+
+--- home/config/required-checks ---
+example/repo autofirma/local-mac-gate
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3","baseRefName":"main","statusCheckRollup":[{"__typename":"StatusContext","context":"autofirma/local-mac-gate","state":"FAILURE"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+verified: https://github.com/example/repo/pull/114 is merged (state=MERGED, merged=true, isInMergeQueue=false)
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+verified: https://github.com/example/repo/pull/114 is open and mergeable, with every unwaived required check reported and every unwaived check green at head d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/114 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/114 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+pr merge 114 --repo example/repo --match-head-commit d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3 --squash
+api graphql -f query=query($owner:String!,$repo:String!,$number:Int!){repository(owner:$owner,name:$repo){pullRequest(number:$number){state merged isInMergeQueue baseRefName}}} -F owner=example -F repo=repo -F number=114 --jq .data.repository.pullRequest | "state=" + (.state // ""), "merged=" + (.merged | tostring), "queued=" + (.isInMergeQueue | tostring), "base=" + (.baseRefName // "")
+
+=== declared-required-red-missing-waiver ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/114 --allow-missing autofirma/local-mac-gate
+EXIT: 1
+
+--- home/config/required-checks ---
+example/repo autofirma/local-mac-gate
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3","baseRefName":"main","statusCheckRollup":[{"__typename":"StatusContext","context":"autofirma/local-mac-gate","state":"FAILURE"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/example/repo/pull/114
+  - check 'autofirma/local-mac-gate' is not green
+error: these checks are not green: autofirma/local-mac-gate
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/114 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/114 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+
+=== declared-required-pending ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/114
+EXIT: 1
+
+--- home/config/required-checks ---
+example/repo autofirma/local-mac-gate
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3","baseRefName":"main","statusCheckRollup":[{"__typename":"StatusContext","context":"autofirma/local-mac-gate","state":"PENDING"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/example/repo/pull/114
+  - check 'autofirma/local-mac-gate' is not green
+error: these checks are not green: autofirma/local-mac-gate
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/114 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/114 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+
+=== declared-required-format ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/115
+EXIT: 0
+
+--- home/config/required-checks ---
+invalid home config
+
+--- custom-config/required-checks ---
+  # local requirements
+
+other/repo not-for-this-repo
+	EXAMPLE/REPO	Build and test 1  
+example/repo Build and test 1
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"Build and test 1","status":"COMPLETED","conclusion":"SUCCESS","startedAt":null,"completedAt":null}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+verified: https://github.com/example/repo/pull/115 is merged (state=MERGED, merged=true, isInMergeQueue=false)
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+verified: https://github.com/example/repo/pull/115 is open and mergeable, with every unwaived required check reported and every unwaived check green at head d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/115 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/115 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+pr merge 115 --repo example/repo --match-head-commit d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4 --squash
+api graphql -f query=query($owner:String!,$repo:String!,$number:Int!){repository(owner:$owner,name:$repo){pullRequest(number:$number){state merged isInMergeQueue baseRefName}}} -F owner=example -F repo=repo -F number=115 --jq .data.repository.pullRequest | "state=" + (.state // ""), "merged=" + (.merged | tostring), "queued=" + (.isInMergeQueue | tostring), "base=" + (.baseRefName // "")
+
+=== declared-required-app-binding ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/116
+EXIT: 1
+
+--- home/config/required-checks ---
+example/repo ci
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/example/repo/pull/116
+  - required check 'ci' has not reported at head d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5
+error: these required checks have not reported: ci
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/116 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/116 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+api --paginate repos/example/repo/commits/d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5/check-runs
+
+=== declared-required-file-empty ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/118
+EXIT: 0
+
+--- home/config/required-checks ---
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+verified: https://github.com/example/repo/pull/118 is merged (state=MERGED, merged=true, isInMergeQueue=false)
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+verified: https://github.com/example/repo/pull/118 is open and mergeable, with every unwaived required check reported and every unwaived check green at head d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/118 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/118 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+pr merge 118 --repo example/repo --match-head-commit d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7 --squash
+api graphql -f query=query($owner:String!,$repo:String!,$number:Int!){repository(owner:$owner,name:$repo){pullRequest(number:$number){state merged isInMergeQueue baseRefName}}} -F owner=example -F repo=repo -F number=118 --jq .data.repository.pullRequest | "state=" + (.state // ""), "merged=" + (.merged | tostring), "queued=" + (.isInMergeQueue | tostring), "base=" + (.baseRefName // "")
+
+=== declared-required-file-comments ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/118
+EXIT: 0
+
+--- home/config/required-checks ---
+ # local checks
+	
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+verified: https://github.com/example/repo/pull/118 is merged (state=MERGED, merged=true, isInMergeQueue=false)
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+verified: https://github.com/example/repo/pull/118 is open and mergeable, with every unwaived required check reported and every unwaived check green at head d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/118 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/118 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+pr merge 118 --repo example/repo --match-head-commit d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7 --squash
+api graphql -f query=query($owner:String!,$repo:String!,$number:Int!){repository(owner:$owner,name:$repo){pullRequest(number:$number){state merged isInMergeQueue baseRefName}}} -F owner=example -F repo=repo -F number=118 --jq .data.repository.pullRequest | "state=" + (.state // ""), "merged=" + (.merged | tostring), "queued=" + (.isInMergeQueue | tostring), "base=" + (.baseRefName // "")
+
+=== declared-required-file-directory ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/118
+EXIT: 1
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/example/repo/pull/118
+  - required-check declarations in /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.nm-test-step/tmp/fm-pr-merge-tests.lMut2U/declared-required-file-directory/home/config/required-checks could not be read, so a required check that has not reported cannot be ruled out
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/118 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/118 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+
+=== declared-required-file-dangling ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/118
+EXIT: 1
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/example/repo/pull/118
+  - required-check declarations in /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.nm-test-step/tmp/fm-pr-merge-tests.lMut2U/declared-required-file-dangling/home/config/required-checks could not be read, so a required check that has not reported cannot be ruled out
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/118 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/118 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+
+=== declared-required-malformed-missing-name ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/117 --allow-missing ci --allow-red ci
+EXIT: 1
+
+--- home/config/required-checks ---
+# required checks
+example/repo
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/example/repo/pull/117
+  - malformed required-check declaration in /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.nm-test-step/tmp/fm-pr-merge-tests.lMut2U/declared-required-malformed-missing-name/home/config/required-checks at line 2: expected <owner>/<repo> <check-or-status-name>, so a required check that has not reported cannot be ruled out
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/117 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/117 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+
+=== declared-required-malformed-bad-repo ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/117 --allow-missing ci --allow-red ci
+EXIT: 1
+
+--- home/config/required-checks ---
+# required checks
+example ci
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/example/repo/pull/117
+  - malformed required-check declaration in /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.nm-test-step/tmp/fm-pr-merge-tests.lMut2U/declared-required-malformed-bad-repo/home/config/required-checks at line 2: expected <owner>/<repo> <check-or-status-name>, so a required check that has not reported cannot be ruled out
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/117 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/117 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+
+=== declared-required-malformed-extra-slash ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/117 --allow-missing ci --allow-red ci
+EXIT: 1
+
+--- home/config/required-checks ---
+# required checks
+other/repo/extra ci
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/example/repo/pull/117
+  - malformed required-check declaration in /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.nm-test-step/tmp/fm-pr-merge-tests.lMut2U/declared-required-malformed-extra-slash/home/config/required-checks at line 2: expected <owner>/<repo> <check-or-status-name>, so a required check that has not reported cannot be ruled out
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/117 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/117 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+
+=== declared-required-malformed-control ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/117 --allow-missing ci --allow-red ci
+EXIT: 1
+
+--- home/config/required-checks ---
+# required checks
+other/repo ci
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/example/repo/pull/117
+  - malformed required-check declaration in /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.nm-test-step/tmp/fm-pr-merge-tests.lMut2U/declared-required-malformed-control/home/config/required-checks at line 2: check name contains a control character, so a required check that has not reported cannot be ruled out
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/117 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/117 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+
+=== required-partial-branch ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/111
+EXIT: 1
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/example/repo/pull/111
+  - the branch protection summary for base branch main could not be read, so a required check that has not reported cannot be ruled out
+  - required check 'lint' has not reported at head a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1
+error: these required checks have not reported: lint
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/111 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/111 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+
+=== required-partial-rules ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/111
+EXIT: 1
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- github-required-rules-fail ---
+read failed
+
+--- stdout ---
+armed: state/task-x1.check.sh
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/example/repo/pull/111
+  - the branch rules for base branch main could not be read, so a required check that has not reported cannot be ruled out
+  - required check 'validate' has not reported at head a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1
+error: these required checks have not reported: validate
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/111 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/111 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+
+=== required-partial-both ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/111
+EXIT: 1
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- github-required-rules-fail ---
+read failed
+
+--- stdout ---
+armed: state/task-x1.check.sh
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/example/repo/pull/111
+  - the branch protection summary for base branch main could not be read, so a required check that has not reported cannot be ruled out
+  - the branch rules for base branch main could not be read, so a required check that has not reported cannot be ruled out
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/111 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/111 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+
+=== github-allow-missing-equals ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/100 --allow-missing=validate
+EXIT: 2
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- stdout ---
+
+--- stderr ---
+error: --allow-missing requires a separate check name argument
+
+--- gh.log ---
+
+=== github-allow-missing-duplicate ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/101 --allow-missing validate --allow-missing e2e
+EXIT: 2
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- stdout ---
+
+--- stderr ---
+error: --allow-missing may be specified only once
+
+--- gh.log ---
+
+=== github-allow-missing-away ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/102 --allow-missing validate
+EXIT: 2
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- stdout ---
+
+--- stderr ---
+error: --allow-missing is attended-only; while the away-posture record exists every required check must report
+
+--- gh.log ---
+
+=== github-allow-missing-away-after-view ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/102 --allow-missing validate
+EXIT: 2
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+verified: https://github.com/example/repo/pull/102 is open and mergeable, with every unwaived required check reported and every unwaived check green at head a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6
+error: --allow-missing is attended-only; while the away-posture record exists every required check must report
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/102 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/102 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+
+=== github-unreported-away ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/103
+EXIT: 1
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/example/repo/pull/103
+  - required check 'validate' has not reported at head a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6a6
+error: these required checks have not reported: validate
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/103 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/103 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+
+=== github-required-present ===
+MODE: fixture-backed CLI; gh/gh-axi mocked (NOT LIVE)
+COMMAND: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh task-x1 https://github.com/example/repo/pull/91
+EXIT: 0
+
+--- github-view.json ---
+{"state":"OPEN","isDraft":false,"mergeable":"MERGEABLE","mergeStateStatus":"CLEAN","headRefOid":"a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2","baseRefName":"main","statusCheckRollup":[{"__typename":"CheckRun","name":"ci","status":"COMPLETED","conclusion":"SUCCESS","startedAt":null,"completedAt":null},{"__typename":"StatusContext","context":"license/cla","state":"SUCCESS"}]}
+
+--- stdout ---
+armed: state/task-x1.check.sh
+verified: https://github.com/example/repo/pull/91 is merged (state=MERGED, merged=true, isInMergeQueue=false)
+
+--- stderr ---
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+verified: https://github.com/example/repo/pull/91 is open and mergeable, with every unwaived required check reported and every unwaived check green at head a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2
+
+--- gh.log ---
+pr view https://github.com/example/repo/pull/91 --json headRefOid -q .headRefOid
+pr view https://github.com/example/repo/pull/91 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+api repos/example/repo/branches/main
+api --paginate repos/example/repo/rules/branches/main
+pr merge 91 --repo example/repo --match-head-commit a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2 --squash
+api graphql -f query=query($owner:String!,$repo:String!,$number:Int!){repository(owner:$owner,name:$repo){pullRequest(number:$number){state merged isInMergeQueue baseRefName}}} -F owner=example -F repo=repo -F number=91 --jq .data.repository.pullRequest | "state=" + (.state // ""), "merged=" + (.merged | tostring), "queued=" + (.isInMergeQueue | tostring), "base=" + (.baseRefName // "")

@@ -1,0 +1,285 @@
+LIVE PRODUCT CHECK: real fm-pr-merge.sh and real authenticated gh.
+Safety scope: only already-merged incident PRs; no merge/status/push API mutations.
+Closed-state refusal remains an independent guard; these checks prove required-check diagnostics, not a new merge.
+
+$ gh pr view https://github.com/maiarowsky/fortnight/pull/745 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+{"baseRefName":"main","headRefOid":"ae1e2cfdcafd963eb23e0b306ae219920fd0e3b2","isDraft":false,"mergeStateStatus":"UNKNOWN","mergeable":"UNKNOWN","state":"MERGED","statusCheckRollup":[{"__typename":"CheckRun","completedAt":"2026-09-30T19:24:13Z","conclusion":"SUCCESS","detailsUrl":"https://github.com/maiarowsky/fortnight/actions/runs/36765398658/job/110058167206","name":"validate","startedAt":"2026-09-30T19:24:05Z","status":"COMPLETED","workflowName":"AUTOFIRMA validation (no deployment)"}]}
+
+EXIT: 0
+
+$ gh api repos/maiarowsky/fortnight/branches/main --jq {name,protected,protection}
+{"name":"main","protected":false,"protection":{"enabled":false,"required_status_checks":{"checks":[],"contexts":[],"enforcement_level":"off"}}}
+
+EXIT: 0
+
+$ gh api repos/maiarowsky/fortnight/rules/branches/main
+{"message":"Upgrade to GitHub Pro or make this repository public to enable this feature.","documentation_url":"https://docs.github.com/rest/repos/rules#get-rules-for-a-branch","status":"403"}gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403)
+
+EXIT: 1
+
+$ /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh lab-merge-check https://github.com/maiarowsky/fortnight/pull/745
+armed: state/lab-merge-check.check.sh
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/maiarowsky/fortnight/pull/745
+  - state is "MERGED", not open
+  - required check 'autofirma/local-mac-gate' has not reported at head ae1e2cfdcafd963eb23e0b306ae219920fd0e3b2
+  - mergeable is "UNKNOWN", not MERGEABLE
+error: these required checks have not reported: autofirma/local-mac-gate
+
+EXIT: 1
+
+Persisted task metadata:
+kind=ship
+mode=no-mistakes
+worktree=/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3
+project=/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3
+pr=https://github.com/maiarowsky/fortnight/pull/745
+pr_head=ae1e2cfdcafd963eb23e0b306ae219920fd0e3b2
+
+$ gh pr view https://github.com/maiarowsky/fortnight/pull/745 --json state,headRefOid
+{"headRefOid":"ae1e2cfdcafd963eb23e0b306ae219920fd0e3b2","state":"MERGED"}
+
+EXIT: 0
+
+$ gh pr view https://github.com/maiarowsky/fortnight/pull/746 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+{"baseRefName":"main","headRefOid":"7951fbaef734d23ecea14e479a062e155e04318c","isDraft":false,"mergeStateStatus":"UNKNOWN","mergeable":"UNKNOWN","state":"MERGED","statusCheckRollup":[{"__typename":"CheckRun","completedAt":"2026-09-30T19:16:51Z","conclusion":"SUCCESS","detailsUrl":"https://github.com/maiarowsky/fortnight/actions/runs/36764538145/job/110055258045","name":"validate","startedAt":"2026-09-30T19:16:43Z","status":"COMPLETED","workflowName":"AUTOFIRMA validation (no deployment)"}]}
+
+EXIT: 0
+
+$ gh api repos/maiarowsky/fortnight/branches/main --jq {name,protected,protection}
+{"name":"main","protected":false,"protection":{"enabled":false,"required_status_checks":{"checks":[],"contexts":[],"enforcement_level":"off"}}}
+
+EXIT: 0
+
+$ gh api repos/maiarowsky/fortnight/rules/branches/main
+{"message":"Upgrade to GitHub Pro or make this repository public to enable this feature.","documentation_url":"https://docs.github.com/rest/repos/rules#get-rules-for-a-branch","status":"403"}gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403)
+
+EXIT: 1
+
+$ /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh lab-merge-check https://github.com/maiarowsky/fortnight/pull/746
+armed: state/lab-merge-check.check.sh
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/maiarowsky/fortnight/pull/746
+  - state is "MERGED", not open
+  - required check 'autofirma/local-mac-gate' has not reported at head 7951fbaef734d23ecea14e479a062e155e04318c
+  - mergeable is "UNKNOWN", not MERGEABLE
+error: these required checks have not reported: autofirma/local-mac-gate
+
+EXIT: 1
+
+Persisted task metadata:
+kind=ship
+mode=no-mistakes
+worktree=/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3
+project=/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3
+pr=https://github.com/maiarowsky/fortnight/pull/746
+pr_head=7951fbaef734d23ecea14e479a062e155e04318c
+
+$ gh pr view https://github.com/maiarowsky/fortnight/pull/746 --json state,headRefOid
+{"headRefOid":"7951fbaef734d23ecea14e479a062e155e04318c","state":"MERGED"}
+
+EXIT: 0
+
+$ gh pr view https://github.com/maiarowsky/fortnight/pull/748 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+{"baseRefName":"main","headRefOid":"6b4954975199f55fe6d299b9e138f9a5d57d2ef3","isDraft":false,"mergeStateStatus":"UNKNOWN","mergeable":"UNKNOWN","state":"MERGED","statusCheckRollup":[{"__typename":"CheckRun","completedAt":"2026-09-30T19:42:55Z","conclusion":"SUCCESS","detailsUrl":"https://github.com/maiarowsky/fortnight/actions/runs/36767562652/job/110065452550","name":"validate","startedAt":"2026-09-30T19:42:46Z","status":"COMPLETED","workflowName":"AUTOFIRMA validation (no deployment)"}]}
+
+EXIT: 0
+
+$ gh api repos/maiarowsky/fortnight/branches/main --jq {name,protected,protection}
+{"name":"main","protected":false,"protection":{"enabled":false,"required_status_checks":{"checks":[],"contexts":[],"enforcement_level":"off"}}}
+
+EXIT: 0
+
+$ gh api repos/maiarowsky/fortnight/rules/branches/main
+{"message":"Upgrade to GitHub Pro or make this repository public to enable this feature.","documentation_url":"https://docs.github.com/rest/repos/rules#get-rules-for-a-branch","status":"403"}gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403)
+
+EXIT: 1
+
+$ /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh lab-merge-check https://github.com/maiarowsky/fortnight/pull/748
+armed: state/lab-merge-check.check.sh
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/maiarowsky/fortnight/pull/748
+  - state is "MERGED", not open
+  - required check 'autofirma/local-mac-gate' has not reported at head 6b4954975199f55fe6d299b9e138f9a5d57d2ef3
+  - mergeable is "UNKNOWN", not MERGEABLE
+error: these required checks have not reported: autofirma/local-mac-gate
+
+EXIT: 1
+
+Persisted task metadata:
+kind=ship
+mode=no-mistakes
+worktree=/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3
+project=/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3
+pr=https://github.com/maiarowsky/fortnight/pull/748
+pr_head=6b4954975199f55fe6d299b9e138f9a5d57d2ef3
+
+$ gh pr view https://github.com/maiarowsky/fortnight/pull/748 --json state,headRefOid
+{"headRefOid":"6b4954975199f55fe6d299b9e138f9a5d57d2ef3","state":"MERGED"}
+
+EXIT: 0
+
+$ gh pr view https://github.com/maiarowsky/fortnight/pull/745 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+{"baseRefName":"main","headRefOid":"ae1e2cfdcafd963eb23e0b306ae219920fd0e3b2","isDraft":false,"mergeStateStatus":"UNKNOWN","mergeable":"UNKNOWN","state":"MERGED","statusCheckRollup":[{"__typename":"CheckRun","completedAt":"2026-09-30T19:24:13Z","conclusion":"SUCCESS","detailsUrl":"https://github.com/maiarowsky/fortnight/actions/runs/36765398658/job/110058167206","name":"validate","startedAt":"2026-09-30T19:24:05Z","status":"COMPLETED","workflowName":"AUTOFIRMA validation (no deployment)"}]}
+
+EXIT: 0
+
+$ /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh lab-merge-check https://github.com/maiarowsky/fortnight/pull/745 --allow-missing validate
+armed: state/lab-merge-check.check.sh
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/maiarowsky/fortnight/pull/745
+  - state is "MERGED", not open
+  - required check 'autofirma/local-mac-gate' has not reported at head ae1e2cfdcafd963eb23e0b306ae219920fd0e3b2
+  - mergeable is "UNKNOWN", not MERGEABLE
+error: these required checks have not reported: autofirma/local-mac-gate
+
+EXIT: 1
+
+$ gh pr view https://github.com/maiarowsky/fortnight/pull/745 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+{"baseRefName":"main","headRefOid":"ae1e2cfdcafd963eb23e0b306ae219920fd0e3b2","isDraft":false,"mergeStateStatus":"UNKNOWN","mergeable":"UNKNOWN","state":"MERGED","statusCheckRollup":[{"__typename":"CheckRun","completedAt":"2026-09-30T19:24:13Z","conclusion":"SUCCESS","detailsUrl":"https://github.com/maiarowsky/fortnight/actions/runs/36765398658/job/110058167206","name":"validate","startedAt":"2026-09-30T19:24:05Z","status":"COMPLETED","workflowName":"AUTOFIRMA validation (no deployment)"}]}
+
+EXIT: 0
+
+$ /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh lab-merge-check https://github.com/maiarowsky/fortnight/pull/745 --allow-missing autofirma/local-mac-gate --allow-red validate
+armed: state/lab-merge-check.check.sh
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/maiarowsky/fortnight/pull/745
+  - state is "MERGED", not open
+  - malformed required-check declaration in /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.nm-test-step/live-home/config/required-checks at line 2: expected <owner>/<repo> <check-or-status-name>, so a required check that has not reported cannot be ruled out
+  - mergeable is "UNKNOWN", not MERGEABLE
+
+EXIT: 1
+
+$ gh pr view https://github.com/maiarowsky/fortnight/pull/745 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+{"baseRefName":"main","headRefOid":"ae1e2cfdcafd963eb23e0b306ae219920fd0e3b2","isDraft":false,"mergeStateStatus":"UNKNOWN","mergeable":"UNKNOWN","state":"MERGED","statusCheckRollup":[{"__typename":"CheckRun","completedAt":"2026-09-30T19:24:13Z","conclusion":"SUCCESS","detailsUrl":"https://github.com/maiarowsky/fortnight/actions/runs/36765398658/job/110058167206","name":"validate","startedAt":"2026-09-30T19:24:05Z","status":"COMPLETED","workflowName":"AUTOFIRMA validation (no deployment)"}]}
+
+EXIT: 0
+
+$ /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh lab-merge-check https://github.com/maiarowsky/fortnight/pull/745 --allow-missing autofirma/local-mac-gate --allow-red validate
+armed: state/lab-merge-check.check.sh
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/maiarowsky/fortnight/pull/745
+  - state is "MERGED", not open
+  - malformed required-check declaration in /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.nm-test-step/live-home/config/required-checks at line 2: check name contains a control character, so a required check that has not reported cannot be ruled out
+  - mergeable is "UNKNOWN", not MERGEABLE
+
+EXIT: 1
+
+$ gh pr view https://github.com/maiarowsky/fortnight/pull/745 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+{"baseRefName":"main","headRefOid":"ae1e2cfdcafd963eb23e0b306ae219920fd0e3b2","isDraft":false,"mergeStateStatus":"UNKNOWN","mergeable":"UNKNOWN","state":"MERGED","statusCheckRollup":[{"__typename":"CheckRun","completedAt":"2026-09-30T19:24:13Z","conclusion":"SUCCESS","detailsUrl":"https://github.com/maiarowsky/fortnight/actions/runs/36765398658/job/110058167206","name":"validate","startedAt":"2026-09-30T19:24:05Z","status":"COMPLETED","workflowName":"AUTOFIRMA validation (no deployment)"}]}
+
+EXIT: 0
+
+$ /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh lab-merge-check https://github.com/maiarowsky/fortnight/pull/745 --allow-missing autofirma/local-mac-gate
+armed: state/lab-merge-check.check.sh
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/maiarowsky/fortnight/pull/745
+  - state is "MERGED", not open
+  - required-check declarations in /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.nm-test-step/live-home/config/required-checks could not be read, so a required check that has not reported cannot be ruled out
+  - mergeable is "UNKNOWN", not MERGEABLE
+
+EXIT: 1
+
+$ gh pr view https://github.com/maiarowsky/fortnight/pull/745 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+{"baseRefName":"main","headRefOid":"ae1e2cfdcafd963eb23e0b306ae219920fd0e3b2","isDraft":false,"mergeStateStatus":"UNKNOWN","mergeable":"UNKNOWN","state":"MERGED","statusCheckRollup":[{"__typename":"CheckRun","completedAt":"2026-09-30T19:24:13Z","conclusion":"SUCCESS","detailsUrl":"https://github.com/maiarowsky/fortnight/actions/runs/36765398658/job/110058167206","name":"validate","startedAt":"2026-09-30T19:24:05Z","status":"COMPLETED","workflowName":"AUTOFIRMA validation (no deployment)"}]}
+
+EXIT: 0
+
+$ /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh lab-merge-check https://github.com/maiarowsky/fortnight/pull/745 --allow-missing autofirma/local-mac-gate
+armed: state/lab-merge-check.check.sh
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/maiarowsky/fortnight/pull/745
+  - state is "MERGED", not open
+  - required-check declarations in /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.nm-test-step/live-home/config/required-checks could not be read, so a required check that has not reported cannot be ruled out
+  - mergeable is "UNKNOWN", not MERGEABLE
+
+EXIT: 1
+
+$ gh pr view https://github.com/maiarowsky/fortnight/pull/745 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+{"baseRefName":"main","headRefOid":"ae1e2cfdcafd963eb23e0b306ae219920fd0e3b2","isDraft":false,"mergeStateStatus":"UNKNOWN","mergeable":"UNKNOWN","state":"MERGED","statusCheckRollup":[{"__typename":"CheckRun","completedAt":"2026-09-30T19:24:13Z","conclusion":"SUCCESS","detailsUrl":"https://github.com/maiarowsky/fortnight/actions/runs/36765398658/job/110058167206","name":"validate","startedAt":"2026-09-30T19:24:05Z","status":"COMPLETED","workflowName":"AUTOFIRMA validation (no deployment)"}]}
+
+EXIT: 0
+
+$ /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh lab-merge-check https://github.com/maiarowsky/fortnight/pull/745 --allow-missing autofirma/local-mac-gate
+armed: state/lab-merge-check.check.sh
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/maiarowsky/fortnight/pull/745
+  - state is "MERGED", not open
+  - required-check declarations in /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.nm-test-step/live-home/config/required-checks could not be read, so a required check that has not reported cannot be ruled out
+  - mergeable is "UNKNOWN", not MERGEABLE
+
+EXIT: 1
+
+$ gh pr view https://github.com/maiarowsky/fortnight/pull/745 --json state,isDraft,mergeable,mergeStateStatus,headRefOid,baseRefName,statusCheckRollup
+{"baseRefName":"main","headRefOid":"ae1e2cfdcafd963eb23e0b306ae219920fd0e3b2","isDraft":false,"mergeStateStatus":"UNKNOWN","mergeable":"UNKNOWN","state":"MERGED","statusCheckRollup":[{"__typename":"CheckRun","completedAt":"2026-09-30T19:24:13Z","conclusion":"SUCCESS","detailsUrl":"https://github.com/maiarowsky/fortnight/actions/runs/36765398658/job/110058167206","name":"validate","startedAt":"2026-09-30T19:24:05Z","status":"COMPLETED","workflowName":"AUTOFIRMA validation (no deployment)"}]}
+
+EXIT: 0
+
+$ /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/bin/fm-pr-merge.sh lab-merge-check https://github.com/maiarowsky/fortnight/pull/745
+armed: state/lab-merge-check.check.sh
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  repair a missing or failed watcher cycle with the Pi tool fm_watch_arm_pi, or restart Pi with -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-turnend-guard.ts -e /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M3TS66QGJVKHGKSDGS4H3FD3/.pi/extensions/fm-primary-pi-watch.ts if the extensions are not loaded.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+error: refusing to merge https://github.com/maiarowsky/fortnight/pull/745
+  - state is "MERGED", not open
+  - mergeable is "UNKNOWN", not MERGEABLE
+
+EXIT: 1

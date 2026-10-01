@@ -1,0 +1,52 @@
+[
+  {
+    "name": "PR 745: missing Mac status is diagnosed at the actual head despite plan 403",
+    "pass": true,
+    "exit": 1
+  },
+  {
+    "name": "PR 746: missing Mac status is diagnosed at the actual head despite plan 403",
+    "pass": true,
+    "exit": 1
+  },
+  {
+    "name": "PR 748: missing Mac status is diagnosed at the actual head despite plan 403",
+    "pass": true,
+    "exit": 1
+  },
+  {
+    "name": "A different named waiver does not waive the missing Mac status",
+    "pass": true,
+    "exit": 1
+  },
+  {
+    "name": "Malformed missing-name declaration for another repository refuses even with waivers",
+    "pass": true,
+    "exit": 1
+  },
+  {
+    "name": "Malformed control-character declaration for another repository refuses even with waivers",
+    "pass": true,
+    "exit": 1
+  },
+  {
+    "name": "directory declaration refuses rather than adding no requirements",
+    "pass": true,
+    "exit": 1
+  },
+  {
+    "name": "dangling-symlink declaration refuses rather than adding no requirements",
+    "pass": true,
+    "exit": 1
+  },
+  {
+    "name": "unreadable-file declaration refuses rather than adding no requirements",
+    "pass": true,
+    "exit": 1
+  },
+  {
+    "name": "Config override, case-insensitive repo scoping, comments and duplicate check-run declarations work",
+    "pass": true,
+    "exit": 1
+  }
+]

@@ -1,0 +1,10 @@
+ok - fm-pr-merge enforces declared Mac CI on a plan-unavailable rules response
+ok - fm-pr-merge combines declared and forge requirements across readable, empty and unreadable rules
+ok - fm-pr-merge applies existing named missing/red waivers to declared contexts
+ok - fm-pr-merge reads declarations from the config override with comments, spaces, duplicates and repo scoping
+ok - fm-pr-merge keeps forge app bindings when a local declaration names the same check
+ok - fm-pr-merge accepts empty declarations and refuses unreadable declaration files
+ok - fm-pr-merge refuses malformed required-check declarations with the file and line number
+ok - fm-pr-merge reports known missing checks and all independent read errors
+ok - fm-pr-merge --allow-missing is single use, attended-only, and GitHub-only like --allow-red
+ok - fm-pr-merge merges when every required check reported and is green
