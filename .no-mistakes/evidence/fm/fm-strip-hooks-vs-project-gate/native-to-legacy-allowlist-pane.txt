@@ -1,0 +1,40 @@
+bash-5.3$ cd -- '/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-tem
+p/live-hooks/native-to-legacy-allowlist/wt'
+bash-5.3$ export GOTMPDIR=/tmp/fm-hook-live-a906111222/gotmp
+bash-5.3$ export COMPACT_ADVISER_DISABLE=1
+bash-5.3$ export FM_TASK_ID=hook-live-a906111222
+bash-5.3$ . '/tmp/fm-hook-live-a906111222+f75e48ac42261d10bfb7058911d35db732096b3813a2886b59fce072d0d61821/launch.s17911
+88943.11067.28843.sh'
+warning: Git config hooks unavailable; using legacy core.hooksPath wrappers for AI-trailer stripping; canonical project-
+hook checks may fail
+bash-5.3$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

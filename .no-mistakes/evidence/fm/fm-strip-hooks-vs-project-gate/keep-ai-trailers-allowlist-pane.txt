@@ -1,0 +1,40 @@
+bash-5.3$ cd -- '/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-tem
+p/live-hooks/keep-ai-trailers-allowlist/wt'
+bash-5.3$ export GOTMPDIR=/tmp/fm-hook-live-76179f4017/gotmp
+bash-5.3$ export COMPACT_ADVISER_DISABLE=1
+bash-5.3$ export FM_TASK_ID=hook-live-76179f4017
+bash-5.3$ . '/tmp/fm-hook-live-76179f4017+6c747d8c61621c9e2814ee12b98fa4a7e26afb32f38f0e5754325680057d0802/launch.s17911
+88949.14436.16669.sh'
+bash-5.3$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

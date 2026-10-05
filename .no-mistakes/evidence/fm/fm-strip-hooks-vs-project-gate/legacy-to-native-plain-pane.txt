@@ -1,0 +1,40 @@
+bash-5.3$ cd -- '/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-tem
+p/live-hooks/legacy-to-native-plain/wt'
+bash-5.3$ export GOTMPDIR=/tmp/fm-hook-live-90e93fdeaf/gotmp
+bash-5.3$ export COMPACT_ADVISER_DISABLE=1
+bash-5.3$ export FM_TASK_ID=hook-live-90e93fdeaf
+bash-5.3$ . '/tmp/fm-hook-live-90e93fdeaf+40353ebba15a20b50e02114b9b72dcade356e669d624f12576ef70a6741e1bd3/launch.s17911
+88926.90306.7662.sh'
+bash-5.3$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

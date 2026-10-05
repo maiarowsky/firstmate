@@ -1,0 +1,60 @@
+=== Baseline reproduction: ordinary canonical-hook health check with the old launch environment ===
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/cli-live/baseline-wrappers/pre-commit
+effective Git pre-commit is non-executable or not the canonical guard
+baseline health-check exit: 42
+=== Current product: default project hook layout ===
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/cli-live/default/.git/hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/cli-live/default/.git/hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/cli-live/default/.git/hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/cli-live/default/.git/hooks/pre-commit
+[main 363caa6] fix: live default validation
+Persisted commit message:
+fix: live default validation
+
+Co-Authored-By: Jane Doe <jane@example.com>
+Project commit-msg input equals persisted stripped message; all four hooks ran in order.
+=== Current product: relative project hook layout ===
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/cli-live/relative/project-hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/cli-live/relative/project-hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/cli-live/relative/project-hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/cli-live/relative/project-hooks/pre-commit
+[main 2571c6a] fix: live relative validation
+Persisted commit message:
+fix: live relative validation
+
+Co-Authored-By: Jane Doe <jane@example.com>
+Project commit-msg input equals persisted stripped message; all four hooks ran in order.
+=== Current product: absolute project hook layout ===
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/cli-live/absolute-hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/cli-live/absolute-hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/cli-live/absolute-hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/cli-live/absolute-hooks/pre-commit
+[main d0116f8] fix: live absolute validation
+Persisted commit message:
+fix: live absolute validation
+
+Co-Authored-By: Jane Doe <jane@example.com>
+Project commit-msg input equals persisted stripped message; all four hooks ran in order.
+=== Current product: late project hook layout ===
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/cli-live/late/project-hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/cli-live/late/project-hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/cli-live/late/project-hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/cli-live/late/project-hooks/pre-commit
+[main 37b591f] fix: live late validation
+Persisted commit message:
+fix: live late validation
+
+Co-Authored-By: Jane Doe <jane@example.com>
+Project commit-msg input equals persisted stripped message; all four hooks ran in order.
+=== Current product: child Git in another repository uses that repository canonical guard ===
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/cli-live/other-repository/.git/hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/cli-live/other-repository/.git/hooks/pre-commit
+[main d21da4d] fix: another repository
+Persisted commit: fix: another repository
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/cli-live/other-repository/command-hooks/pre-commit
+[main 0ca6a5d] fix: command scoped hooks
+Persisted command-scoped commit: fix: command scoped hooks
+[main d61af51] fix: disabled project hooks
+Persisted disabled-project-hook commit: fix: disabled project hooks
+Command-scoped and disabled project hooks retained their Git semantics while AI stripping remained active.
+All public hook CLI scenarios passed; disposable repositories removed on exit.

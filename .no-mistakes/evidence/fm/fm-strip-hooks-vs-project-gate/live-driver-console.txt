@@ -1,0 +1,488 @@
+Live product: fm-spawn --relaunch into seeded, agent-free disposable tmux workers; no models, fake Git, or fake terminal backend.
+git version 2.54.0
+git version 2.50.1 (Apple Git-155)
+tmux 3.6a
+
+=== legacy-to-native-plain: spawner git version 2.50.1 (Apple Git-155) / destination git version 2.54.0 ===
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-plain/home
+notice: hook-live-90e93fdeaf ships mode=local-only while the standing posture for project is no-mistakes - less rigor than the captain's standing posture; proceed only on a current explicit captain instruction or an intake judgment you can state
+spawned hook-live-90e93fdeaf harness=sh kind=ship mode=local-only yolo=off window=fm-lab-hooks:fm-hook-live-90e93fdeaf worktree=/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-plain/wt
+worker git: git version 2.54.0
+worker grid: 40 120
+worker config keys:
+core.hookspath project-hooks
+hook.project.event commit-msg
+hook.project.command printf "config-commit-msg\n" >> hook-order
+hook.firstmate-strip-ai-trailers.enabled false
+hook.firstmate-strip-ai-trailers.event commit-msg
+hook.firstmate-strip-ai-trailers.command '/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/bin/fm-git-strip-ai-trailers.sh'
+hook.firstmate-strip-ai-trailers.enabled true
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-plain/wt/project-hooks/pre-commit
+canonical pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-plain/wt/project-hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-plain/wt/project-hooks/pre-commit
+canonical pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-plain/wt/project-hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-plain/wt/project-hooks/pre-commit
+canonical pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-plain/wt/project-hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-plain/wt/project-hooks/pre-commit
+canonical pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-plain/wt/project-hooks/pre-commit
+ordinary validation propagates exit 23 without committing
+[fm/hook-live-90e93fdeaf c2590c4] fix: live ordinary validation
+persisted commit:
+Hook Fixture <hook-fixture@example.invalid>
+fix: live ordinary validation
+
+Co-authored-by: Jane Doe <jane@example.com>
+
+project commit-msg input:
+fix: live ordinary validation
+
+Co-authored-by: Jane Doe <jane@example.com>
+
+hook order:
+pre-commit
+prepare-commit-msg
+config-commit-msg
+commit-msg
+post-commit
+expected hook order:
+pre-commit
+prepare-commit-msg
+config-commit-msg
+commit-msg
+post-commit
+project commit-msg refusal: exit 1, HEAD unchanged
+project pre-commit refusal: exit 1, HEAD unchanged
+project pre-push refusal
+error: failed to push some refs to '/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-plain/remote.git'
+child Git project pre-push refusal: exit 1, remote unchanged
+
+actual pane setup/launch transcript:
+bash-5.3$ cd -- '/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-tem
+p/live-hooks/legacy-to-native-plain/wt'
+bash-5.3$ export GOTMPDIR=/tmp/fm-hook-live-90e93fdeaf/gotmp
+bash-5.3$ export COMPACT_ADVISER_DISABLE=1
+bash-5.3$ export FM_TASK_ID=hook-live-90e93fdeaf
+bash-5.3$ . '/tmp/fm-hook-live-90e93fdeaf+40353ebba15a20b50e02114b9b72dcade356e669d624f12576ef70a6741e1bd3/launch.s17911
+88926.90306.7662.sh'
+bash-5.3$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+legacy-to-native-plain: ordinary commit, identity, project hooks, hook ordering, guard refusals, and attribution policy verified against persisted Git state.
+
+=== legacy-to-native-allowlist: spawner git version 2.50.1 (Apple Git-155) / destination git version 2.54.0 ===
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-allowlist/home
+notice: hook-live-d38d21a6ba ships mode=local-only while the standing posture for project is no-mistakes - less rigor than the captain's standing posture; proceed only on a current explicit captain instruction or an intake judgment you can state
+spawned hook-live-d38d21a6ba harness=sh kind=ship mode=local-only yolo=off window=fm-lab-hooks:fm-hook-live-d38d21a6ba worktree=/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-allowlist/wt
+worker git: git version 2.54.0
+worker grid: 40 120
+worker config keys:
+core.hookspath project-hooks
+hook.project.event commit-msg
+hook.project.command printf "config-commit-msg\n" >> hook-order
+hook.firstmate-strip-ai-trailers.enabled false
+hook.firstmate-strip-ai-trailers.event commit-msg
+hook.firstmate-strip-ai-trailers.command '/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/bin/fm-git-strip-ai-trailers.sh'
+hook.firstmate-strip-ai-trailers.enabled true
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-allowlist/wt/project-hooks/pre-commit
+canonical pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-allowlist/wt/project-hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-allowlist/wt/project-hooks/pre-commit
+canonical pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-allowlist/wt/project-hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-allowlist/wt/project-hooks/pre-commit
+canonical pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-allowlist/wt/project-hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-allowlist/wt/project-hooks/pre-commit
+canonical pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-allowlist/wt/project-hooks/pre-commit
+ordinary validation propagates exit 23 without committing
+[fm/hook-live-d38d21a6ba 17fc609] fix: live ordinary validation
+persisted commit:
+Hook Fixture <hook-fixture@example.invalid>
+fix: live ordinary validation
+
+Co-authored-by: Jane Doe <jane@example.com>
+
+project commit-msg input:
+fix: live ordinary validation
+
+Co-authored-by: Jane Doe <jane@example.com>
+
+hook order:
+pre-commit
+prepare-commit-msg
+config-commit-msg
+commit-msg
+post-commit
+expected hook order:
+pre-commit
+prepare-commit-msg
+config-commit-msg
+commit-msg
+post-commit
+project commit-msg refusal: exit 1, HEAD unchanged
+project pre-commit refusal: exit 1, HEAD unchanged
+project pre-push refusal
+error: failed to push some refs to '/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/legacy-to-native-allowlist/remote.git'
+child Git project pre-push refusal: exit 1, remote unchanged
+
+actual pane setup/launch transcript:
+bash-5.3$ cd -- '/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-tem
+p/live-hooks/legacy-to-native-allowlist/wt'
+bash-5.3$ export GOTMPDIR=/tmp/fm-hook-live-d38d21a6ba/gotmp
+bash-5.3$ export COMPACT_ADVISER_DISABLE=1
+bash-5.3$ export FM_TASK_ID=hook-live-d38d21a6ba
+bash-5.3$ . '/tmp/fm-hook-live-d38d21a6ba+810675ef4397bab8070086a682e0f07848417e313512f94e1f1521c436e4d8e2/launch.s17911
+88931.93432.18274.sh'
+bash-5.3$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+legacy-to-native-allowlist: ordinary commit, identity, project hooks, hook ordering, guard refusals, and attribution policy verified against persisted Git state.
+
+=== native-to-legacy-plain: spawner git version 2.54.0 / destination git version 2.50.1 (Apple Git-155) ===
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/native-to-legacy-plain/home
+notice: hook-live-eaf31fb0fb ships mode=local-only while the standing posture for project is no-mistakes - less rigor than the captain's standing posture; proceed only on a current explicit captain instruction or an intake judgment you can state
+spawned hook-live-eaf31fb0fb harness=sh kind=ship mode=local-only yolo=off window=fm-lab-hooks:fm-hook-live-eaf31fb0fb worktree=/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/native-to-legacy-plain/wt
+worker git: git version 2.50.1 (Apple Git-155)
+worker grid: 40 120
+worker config keys:
+core.hookspath project-hooks
+core.hookspath /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/native-to-legacy-plain/home/state/hook-live-eaf31fb0fb.git-hooks
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/native-to-legacy-plain/home/state/hook-live-eaf31fb0fb.git-hooks/pre-commit
+canonical pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/native-to-legacy-plain/wt/project-hooks/pre-commit
+effective Git pre-commit is non-executable or not the canonical guard
+authorized legacy identity-check limitation: exit 42
+[fm/hook-live-eaf31fb0fb d173ceb] fix: live ordinary validation
+persisted commit:
+Hook Fixture <hook-fixture@example.invalid>
+fix: live ordinary validation
+
+Co-authored-by: Jane Doe <jane@example.com>
+
+project commit-msg input:
+fix: live ordinary validation
+
+Co-authored-by: Jane Doe <jane@example.com>
+
+hook order:
+pre-commit
+prepare-commit-msg
+commit-msg
+post-commit
+expected hook order:
+pre-commit
+prepare-commit-msg
+commit-msg
+post-commit
+project commit-msg refusal: exit 1, HEAD unchanged
+project pre-commit refusal: exit 1, HEAD unchanged
+project pre-push refusal
+error: failed to push some refs to '/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/native-to-legacy-plain/remote.git'
+child Git project pre-push refusal: exit 1, remote unchanged
+
+actual pane setup/launch transcript:
+bash-5.3$ cd -- '/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-tem
+p/live-hooks/native-to-legacy-plain/wt'
+bash-5.3$ export GOTMPDIR=/tmp/fm-hook-live-eaf31fb0fb/gotmp
+bash-5.3$ export COMPACT_ADVISER_DISABLE=1
+bash-5.3$ export FM_TASK_ID=hook-live-eaf31fb0fb
+bash-5.3$ . '/tmp/fm-hook-live-eaf31fb0fb+65aef116b98bd00436d3d68a52f99feeb2d0a5c48ca8789faab5f5b56ec9966b/launch.s17911
+88936.3760.27425.sh'
+warning: Git config hooks unavailable; using legacy core.hooksPath wrappers for AI-trailer stripping; canonical project-
+hook checks may fail
+bash-5.3$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+native-to-legacy-plain: ordinary commit, identity, project hooks, hook ordering, guard refusals, and attribution policy verified against persisted Git state.
+
+=== native-to-legacy-allowlist: spawner git version 2.54.0 / destination git version 2.50.1 (Apple Git-155) ===
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/native-to-legacy-allowlist/home
+notice: hook-live-a906111222 ships mode=local-only while the standing posture for project is no-mistakes - less rigor than the captain's standing posture; proceed only on a current explicit captain instruction or an intake judgment you can state
+spawned hook-live-a906111222 harness=sh kind=ship mode=local-only yolo=off window=fm-lab-hooks:fm-hook-live-a906111222 worktree=/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/native-to-legacy-allowlist/wt
+worker git: git version 2.50.1 (Apple Git-155)
+worker grid: 40 120
+worker config keys:
+core.hookspath project-hooks
+core.hookspath /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/native-to-legacy-allowlist/home/state/hook-live-a906111222.git-hooks
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/native-to-legacy-allowlist/home/state/hook-live-a906111222.git-hooks/pre-commit
+canonical pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/native-to-legacy-allowlist/wt/project-hooks/pre-commit
+effective Git pre-commit is non-executable or not the canonical guard
+authorized legacy identity-check limitation: exit 42
+[fm/hook-live-a906111222 ca7c480] fix: live ordinary validation
+persisted commit:
+Hook Fixture <hook-fixture@example.invalid>
+fix: live ordinary validation
+
+Co-authored-by: Jane Doe <jane@example.com>
+
+project commit-msg input:
+fix: live ordinary validation
+
+Co-authored-by: Jane Doe <jane@example.com>
+
+hook order:
+pre-commit
+prepare-commit-msg
+commit-msg
+post-commit
+expected hook order:
+pre-commit
+prepare-commit-msg
+commit-msg
+post-commit
+project commit-msg refusal: exit 1, HEAD unchanged
+project pre-commit refusal: exit 1, HEAD unchanged
+project pre-push refusal
+error: failed to push some refs to '/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/native-to-legacy-allowlist/remote.git'
+child Git project pre-push refusal: exit 1, remote unchanged
+
+actual pane setup/launch transcript:
+bash-5.3$ cd -- '/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-tem
+p/live-hooks/native-to-legacy-allowlist/wt'
+bash-5.3$ export GOTMPDIR=/tmp/fm-hook-live-a906111222/gotmp
+bash-5.3$ export COMPACT_ADVISER_DISABLE=1
+bash-5.3$ export FM_TASK_ID=hook-live-a906111222
+bash-5.3$ . '/tmp/fm-hook-live-a906111222+f75e48ac42261d10bfb7058911d35db732096b3813a2886b59fce072d0d61821/launch.s17911
+88943.11067.28843.sh'
+warning: Git config hooks unavailable; using legacy core.hooksPath wrappers for AI-trailer stripping; canonical project-
+hook checks may fail
+bash-5.3$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+native-to-legacy-allowlist: ordinary commit, identity, project hooks, hook ordering, guard refusals, and attribution policy verified against persisted Git state.
+
+=== keep-ai-trailers-allowlist: spawner git version 2.54.0 / destination git version 2.54.0 ===
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/keep-ai-trailers-allowlist/home
+notice: hook-live-76179f4017 ships mode=local-only while the standing posture for project is no-mistakes - less rigor than the captain's standing posture; proceed only on a current explicit captain instruction or an intake judgment you can state
+spawned hook-live-76179f4017 harness=sh kind=ship mode=local-only yolo=off window=fm-lab-hooks:fm-hook-live-76179f4017 worktree=/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/keep-ai-trailers-allowlist/wt
+worker git: git version 2.54.0
+worker grid: 40 120
+worker config keys:
+core.hookspath project-hooks
+hook.project.event commit-msg
+hook.project.command printf "config-commit-msg\n" >> hook-order
+hook.firstmate-strip-ai-trailers.enabled false
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/keep-ai-trailers-allowlist/wt/project-hooks/pre-commit
+canonical pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/keep-ai-trailers-allowlist/wt/project-hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/keep-ai-trailers-allowlist/wt/project-hooks/pre-commit
+canonical pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/keep-ai-trailers-allowlist/wt/project-hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/keep-ai-trailers-allowlist/wt/project-hooks/pre-commit
+canonical pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/keep-ai-trailers-allowlist/wt/project-hooks/pre-commit
+effective pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/keep-ai-trailers-allowlist/wt/project-hooks/pre-commit
+canonical pre-commit: /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/keep-ai-trailers-allowlist/wt/project-hooks/pre-commit
+ordinary validation propagates exit 23 without committing
+[fm/hook-live-76179f4017 4a21e98] fix: live ordinary validation
+persisted commit:
+Hook Fixture <hook-fixture@example.invalid>
+fix: live ordinary validation
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+Co-authored-by: Jane Doe <jane@example.com>
+
+Co-authored-by: Claude <noreply@anthropic.com>
+
+project commit-msg input:
+fix: live ordinary validation
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+Co-authored-by: Jane Doe <jane@example.com>
+
+Co-authored-by: Claude <noreply@anthropic.com>
+hook order:
+pre-commit
+prepare-commit-msg
+config-commit-msg
+commit-msg
+post-commit
+expected hook order:
+pre-commit
+prepare-commit-msg
+config-commit-msg
+commit-msg
+post-commit
+project commit-msg refusal: exit 1, HEAD unchanged
+project pre-commit refusal: exit 1, HEAD unchanged
+project pre-push refusal
+error: failed to push some refs to '/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/keep-ai-trailers-allowlist/remote.git'
+child Git project pre-push refusal: exit 1, remote unchanged
+
+actual pane setup/launch transcript:
+bash-5.3$ cd -- '/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-tem
+p/live-hooks/keep-ai-trailers-allowlist/wt'
+bash-5.3$ export GOTMPDIR=/tmp/fm-hook-live-76179f4017/gotmp
+bash-5.3$ export COMPACT_ADVISER_DISABLE=1
+bash-5.3$ export FM_TASK_ID=hook-live-76179f4017
+bash-5.3$ . '/tmp/fm-hook-live-76179f4017+6c747d8c61621c9e2814ee12b98fa4a7e26afb32f38f0e5754325680057d0802/launch.s17911
+88949.14436.16669.sh'
+bash-5.3$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+keep-ai-trailers-allowlist: ordinary commit, identity, project hooks, hook ordering, guard refusals, and attribution policy verified against persisted Git state.
+
+=== hook-setup-refuses-plain: spawner git version 2.54.0 / destination git version 2.54.0 ===
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/hook-setup-refuses-plain/home
+notice: hook-live-8c54a7f65f ships mode=local-only while the standing posture for project is no-mistakes - less rigor than the captain's standing posture; proceed only on a current explicit captain instruction or an intake judgment you can state
+spawned hook-live-8c54a7f65f harness=touch kind=ship mode=local-only yolo=off window=fm-lab-hooks:fm-hook-live-8c54a7f65f worktree=/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/hook-setup-refuses-plain/wt
+Actual destination shell diagnostic:
+[?2004hbash-5.3$ cd -- '/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/hook-setup-refuses-plain/wt'
+[?2004l
+[?2004hbash-5.3$ export GOTMPDIR=/tmp/fm-hook-live-8c54a7f65f/gotmp
+[?2004l
+[?2004hbash-5.3$ export COMPACT_ADVISER_DISABLE=1
+[?2004l
+[?2004hbash-5.3$ export FM_TASK_ID=hook-live-8c54a7f65f
+[?2004l
+[?2004hbash-5.3$ . '/tmp/fm-hook-live-8c54a7f65f+ebcdf27263aca4d517a9523d7bf8d32c9f12f6103cadd6b4fedf8a2d2a9baae7/launch.s1791188953.16578.13459.sh'
+[?2004l
+fatal: bad config line 1 in file /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M45B82ANJF07B6F1VXXV80JH/.validation-temp/live-hooks/hook-setup-refuses-plain/broken-config
+
+Malformed destination Git configuration refused hook setup; neither compound launch step ran and the worker shell exited.
+
+All live scenarios completed. Only the private fm-lab-hooks tmux server was used.
