@@ -1,0 +1,40 @@
+Real Pi profile: openai-codex/gpt-6.1-sol xhigh; offline, no submitted model prompt.
+Initial worker: identity=pi	idle composer=empty agent=alive
+
+Draft 1: draft-not-submitted
+Before exit: composer=pending
+fm-control exit rc=1: fm-gate-refuse: gate agent lifecycle permitted only against lab home /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M4K30EK3AB66P87XY0KKNBAV/.live-test-step/fm-lab.6zYDGL
+error: task pi-proof's composer visibly holds pending text; refusing to type the /quit exit command because it would concatenate onto that text. Clear or submit the pending text, then retry 'exit'
+Actual viewport unchanged; Pi still alive; no /quit appended.
+After Ctrl+U: composer=empty
+
+Draft 2: ❯
+Before exit: composer=pending
+fm-control exit rc=1: fm-gate-refuse: gate agent lifecycle permitted only against lab home /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M4K30EK3AB66P87XY0KKNBAV/.live-test-step/fm-lab.6zYDGL
+error: task pi-proof's composer visibly holds pending text; refusing to type the /quit exit command because it would concatenate onto that text. Clear or submit the pending text, then retry 'exit'
+Actual viewport unchanged; Pi still alive; no /quit appended.
+After Ctrl+U: composer=empty
+
+Draft 3: $0.000 (sub)
+Before exit: composer=pending
+fm-control exit rc=1: fm-gate-refuse: gate agent lifecycle permitted only against lab home /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M4K30EK3AB66P87XY0KKNBAV/.live-test-step/fm-lab.6zYDGL
+error: task pi-proof's composer visibly holds pending text; refusing to type the /quit exit command because it would concatenate onto that text. Clear or submit the pending text, then retry 'exit'
+Actual viewport unchanged; Pi still alive; no /quit appended.
+After Ctrl+U: composer=empty
+
+Draft 4: Type a message...
+Before exit: composer=pending
+fm-control exit rc=1: fm-gate-refuse: gate agent lifecycle permitted only against lab home /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M4K30EK3AB66P87XY0KKNBAV/.live-test-step/fm-lab.6zYDGL
+error: task pi-proof's composer visibly holds pending text; refusing to type the /quit exit command because it would concatenate onto that text. Clear or submit the pending text, then retry 'exit'
+Actual viewport unchanged; Pi still alive; no /quit appended.
+After Ctrl+U: composer=empty
+
+Idle interrupt followed by exit:
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M4K30EK3AB66P87XY0KKNBAV/.live-test-step/fm-lab.6zYDGL
+interrupt-delivered pi-proof harness=pi backend=tmux verified=agent-alive cancel=unconfirmed
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M4K30EK3AB66P87XY0KKNBAV/.live-test-step/fm-lab.6zYDGL
+stopped pi-proof harness=pi backend=tmux endpoint=proof:fm-pi-proof worktree=/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M4K30EK3AB66P87XY0KKNBAV/.live-test-step/fm-lab.6zYDGL/cwd
+Postcondition: Pi agent dead; exact endpoint still exists; metadata unchanged.
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M4K30EK3AB66P87XY0KKNBAV/.live-test-step/fm-lab.6zYDGL
+already-stopped pi-proof harness=pi backend=tmux endpoint=proof:fm-pi-proof worktree=/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M4K30EK3AB66P87XY0KKNBAV/.live-test-step/fm-lab.6zYDGL/cwd
+Disposable Pi worker and private tmux server removed.

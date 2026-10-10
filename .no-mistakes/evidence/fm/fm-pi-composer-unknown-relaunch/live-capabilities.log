@@ -1,0 +1,6 @@
+pi: /Users/jaroslawmacioszek/.local/share/fnm/node-versions/v24.20.0/installation/bin/pi
+pi-signed: absent from PATH
+tmux: /opt/homebrew/bin/tmux
+herdr: /Users/jaroslawmacioszek/.local/bin/herdr
+
+Herdr attempt: isolated HOME and TMPDIR with FM_HERDR_LAB_STATE_DIR inside the worktree; prepare refused before provisioning. No default session was created or changed.

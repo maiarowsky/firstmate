@@ -1,0 +1,35 @@
+
+tmux installed, neither Pi executable available: capability skip
+PATH=/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M4K30EK3AB66P87XY0KKNBAV/.live-test-step/no-pi-bin:/usr/bin:/bin
+skip: live: pi-signed absent
+exit=0
+
+Neither Pi executable available, explicitly forced: hard failure
+PATH=/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M4K30EK3AB66P87XY0KKNBAV/.live-test-step/no-pi-bin:/usr/bin:/bin
+not ok - FM_COMPOSER_PI_IDLE_LIVE was requested but pi-signed is not installed
+exit=1
+
+Neither Pi executable available, family forced: hard failure
+PATH=/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M4K30EK3AB66P87XY0KKNBAV/.live-test-step/no-pi-bin:/usr/bin:/bin
+not ok - FM_COMPOSER_PI_IDLE_LIVE was requested but pi-signed is not installed
+exit=1
+
+Pi installed, tmux unavailable: capability skip
+PATH=/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M4K30EK3AB66P87XY0KKNBAV/.live-test-step/no-tmux-bin:/usr/bin:/bin
+skip: live: tmux absent
+exit=0
+
+Pi installed, tmux unavailable, forced: hard failure
+PATH=/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M4K30EK3AB66P87XY0KKNBAV/.live-test-step/no-tmux-bin:/usr/bin:/bin
+not ok - FM_COMPOSER_PI_IDLE_LIVE was requested but tmux is not installed
+exit=1
+
+Explicit guard opt-out wins over family opt-in
+PATH=/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M4K30EK3AB66P87XY0KKNBAV/.live-test-step/no-pi-bin:/usr/bin:/bin
+skip: live: disabled by FM_COMPOSER_PI_IDLE_LIVE=0
+exit=0
+
+Family opt-out prevents any harness launch
+PATH=/Users/jaroslawmacioszek/.no-mistakes/worktrees/bd45d26a4aa0/01M4K30EK3AB66P87XY0KKNBAV/.live-test-step/no-tmux-bin:/usr/bin:/bin
+skip: live: disabled by FM_LIVE=0
+exit=0
